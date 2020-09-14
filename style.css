@@ -1,0 +1,29 @@
+#main-lib-wrapper {
+
+}
+
+#book-input-ribbon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#display-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80vw;
+    margin: 2em auto 0 auto;
+    text-align: center;
+}
+
+#display-title p {
+    margin: 0;
+}
+
+#library-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+}
