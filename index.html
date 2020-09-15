@@ -5,35 +5,46 @@
 
 <body>
     <div id="main-lib-wrapper">
-        <div id="book-input-ribbon">
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" id='title'></input>
+    <button id="show-book-ribbon">Add New Book</button>
+       <div id="display-area">
+            <div id='display-title'>
+                <p>Title</p>
+                <p>Author</p>
+                <p>Number of Pages</p>
+                <p>Finished?</p>
+                <p>Delete Book</p>
             </div>
-            <div>
-                <label for="author">Author:</label>
-                <input type="text" id='author'></input>
-            </div>
-            <div>
-                <label for="page-number">Number of Pages:</label>
-                <input type="text" id='page-number'></input>
-            </div>
-            <div>
-                <label for="read">Finished:</label>
-                <input type="checkbox" id="read"></input>
-            </div>
-            <button id="add-new-book">Add New Book</button>
+            <div id="library-display"></div>
         </div>
-        <div id='display-title'>
-            <p>Title</p>
-            <p>Author</p>
-            <p>Number of Pages</p>
-            <p>Finished?</p>
-        </div>
-        <div id="library-display"></div>
-
-
+        <div class="add-book-area">
+            <div id="book-input-ribbon">
+                <span id="close">&times;</span>
+                <div id="input-menu">
+                    <div>
+                        <label for="title">Title:</label>
+                        <input type="text" id='title'></input>
+                    </div>
+                    <div>
+                        <label for="author">Author:</label>
+                        <input type="text" id='author'></input>
+                    </div>
+                    <div>
+                        <label for="page-number">Number of Pages:</label>
+                        <input type="text" id='page-number'></input>
+                    </div>
+                    <div>
+                        <label for="read">Finished:</label>
+                        <input type="checkbox" id="read"></input>
+                    </div>      
+                    <button id="add-new-book">Add</button>
+                </div>
+            </div>
+        </div>  
     </div>
+        
+
+
+    
 
 </body>
 

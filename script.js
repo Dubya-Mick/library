@@ -3,6 +3,12 @@ let authorInput = document.querySelector('#author');
 let pageInput = document.querySelector('#page-number');
 let checkBox = document.querySelector('#read');
 let addBookButton = document.querySelector('#add-new-book');
+let bookInputRibbon = document.querySelector('#book-input-ribbon');
+let libDisplay = document.querySelector('#library-display');
+let addBookArea = document.querySelector('.add-book-area');
+let modalClose = document.querySelector('#close');
+let showAddBookRibbonButton = document.querySelector('#show-book-ribbon');
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -10,13 +16,6 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function () {
-        if (this.read == 'Yes') {
-            return `${this.title} by ${this.author}, ${this.pages} pages, finished!`
-        } else {
-            return `${this.title} by ${this.author}, ${this.pages} pages, not finished yet!`
-        }
-    }
 }
 
 function addBookToLibrary() {
@@ -26,36 +25,56 @@ function addBookToLibrary() {
     }
 }
 
-function removeChildren(parent) {
+function clearDisplay(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild)
     }
 }
 
-let libDisplay = document.querySelector('#library-display');
 function displayLibrary() {
     let libraryFragment = document.createDocumentFragment();
     let titleDiv = document.createElement('div');
     let authorDiv = document.createElement('div');
     let pagesDiv = document.createElement('div');
     let readDiv = document.createElement('div');
-    if (myLibrary.length < 2) {
-        titleDiv.textContent = myLibrary[0].title;
-        authorDiv.textContent = myLibrary[0].author;
-        pagesDiv.textContent = myLibrary[0].pages;
-        readDiv.textContent = myLibrary[0].read;
-    } else {
-        titleDiv.textContent = myLibrary[myLibrary.length - 1].title;
-        authorDiv.textContent = myLibrary[myLibrary.length - 1].author;
-        pagesDiv.textContent = myLibrary[myLibrary.length - 1].pages;
-        readDiv.textContent = myLibrary[myLibrary.length - 1].read;
-    }
+    titleDiv.textContent = myLibrary[myLibrary.length - 1].title;
+    authorDiv.textContent = myLibrary[myLibrary.length - 1].author;
+    pagesDiv.textContent = myLibrary[myLibrary.length - 1].pages;
+    readDiv.textContent = myLibrary[myLibrary.length - 1].read;
     libraryFragment.appendChild(titleDiv);
     libraryFragment.appendChild(authorDiv);
     libraryFragment.appendChild(pagesDiv);
     libraryFragment.appendChild(readDiv);
     libDisplay.appendChild(libraryFragment);
 }
+
+function displayyLibrary() {
+    let libraryFragment = document.createDocumentFragment();
+    for(let i = 0; i < myLibrary.length; i++) {
+        //create divs for book data and delete button
+        let titleDiv = document.createElement('div');
+        let authorDiv = document.createElement('div');
+        let pagesDiv = document.createElement('div');
+        let readDiv = document.createElement('input');
+        let deleteButton = document.createElement('button');
+        //assign types and textcontent to book info divs and delete button
+        titleDiv.textContent = myLibrary[i].title;
+        authorDiv.textContent = myLibrary[i].author;
+        pagesDiv.textContent = myLibrary[i].pages;
+        readDiv.setAttribute('type', 'checkBox');
+        deleteButton.textContent = 'Delete';
+        libraryFragment.appendChild(titleDiv);
+        libraryFragment.appendChild(authorDiv);
+        libraryFragment.appendChild(pagesDiv);
+        libraryFragment.appendChild(readDiv);
+        libraryFragment.appendChild(deleteButton);
+    }
+    clearDisplay(libDisplay);
+    libDisplay.appendChild(libraryFragment);
+}
+
+
+
 
 
 function addUserBook() {
@@ -66,10 +85,24 @@ function addUserBook() {
         userBook = new Book(titleInput.value, authorInput.value, pageInput.value, 'Not yet');
     }
     addBookToLibrary(userBook);
-    displayLibrary();
+    displayyLibrary();
 }
 addBookButton.addEventListener('click', addUserBook);
 
+//modal add book menu pop up
+showAddBookRibbonButton.addEventListener('click', () => {
+    addBookArea.style.display = "block";
+})
 
+//close modal add book menu on "x" close button
+modalClose.addEventListener('click', () => {
+    addBookArea.style.display = 'none';
+})
 
+//close modal add book menu on click anywhere outside 
+window.onclick = function(event) {
+    if (event.target == addBookArea) {
+        addBookArea.style.display = 'none';
+    }
+}
 
