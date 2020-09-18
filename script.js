@@ -138,11 +138,42 @@ window.onclick = function(event) {
     }
 }
 
+//sort the array of books by length
+function sortByLength() {
+    if (myLibrary.length > 1) {
+        myLibrary = myLibrary.sort((a, b) => parseInt(a.pages) > parseInt(b.pages) ? 1 : -1);
+        displayLibrary();
+    }
+}
+let byLengthButton = document.querySelector('#by-length');
+byLengthButton.addEventListener('click', sortByLength);
 
+//sort the array of books alphabetically by title
+function sortByTitle() {
+    if (myLibrary.length > 1) {
+        myLibrary = myLibrary.sort((a, b) => {
+            let itemA = a.title.toLowerCase();
+            let itemB = b.title.toLowerCase();
+            //if itemB is great that item A return -1 else if A is bigger return 1 else return 0
+            return (itemA < itemB) ? -1 : (itemA > itemB) ? 1 : 0;
+        });
+        displayLibrary();
+    }
+}
+let byTitleButton = document.querySelector('#by-title');
+byTitleButton.addEventListener('click', sortByTitle);
 
-
-
-
-
-//add filter methods for sort alphabetically by title, author, numerically 
-//by number of pages
+//sort of the array of books alphebtically by author name
+function sortByAuthor() {
+    if (myLibrary.length > 1) {
+        myLibrary = myLibrary.sort((a, b) => {
+            let itemA = a.author.toLowerCase();
+            let itemB = b.author.toLowerCase();
+            //if itemB is great that item A return -1 else if A is bigger return 1 else return 0
+            return (itemA < itemB) ? -1 : (itemA > itemB) ? 1 : 0;
+        });
+        displayLibrary();
+    }
+}
+let byAuthorButton = document.querySelector('#by-author');
+byAuthorButton.addEventListener('click', sortByAuthor);

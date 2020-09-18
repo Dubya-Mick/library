@@ -1,17 +1,63 @@
 body {
     background-color: #3e587f;
     color: white;
+    font-family: 'Raleway', sans-serif;
 }
 
 #main-lib-wrapper {
-    font-family: 'Raleway', sans-serif;
     width: 100%;
 }
 
+#main-buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+/* start sort library menu */
+.sort-wrapper {
+    position: relative;
+    width: 10em;
+}
+
+.sort-button {
+    background-color: #5782ba;
+    cursor: pointer;
+    text-align: center;
+    width: 10em;
+    font-size: 1em;
+    border: 1px solid #35cbed;
+}
+
+.sort-options {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #35cbed;
+    text-align: center;
+    width: 100%;
+}
+
+.sort-options div {
+    display: block;
+    background-color:#5782ba;
+    cursor: pointer;
+}
+
+.sort-options div:hover {
+ background-color: #befba7;
+ color: black;
+}
+
+.sort-wrapper:hover .sort-options {
+    display: block;
+}
+/* end sort library menu */
+
+/*add new book button*/
 #show-book-ribbon {
     width: 10em;
-    margin: 2em auto 2em auto;
-    display: block;
     cursor: pointer;
     border: none;
     background-color: #5782ba;
@@ -59,11 +105,12 @@ body {
 }
 
 #book-input-ribbon {
-    height: 30em;
-    width: 20em;
+    height: 25em;
+    width: 18em;
     margin: 20vh auto;
     background-color: #3e587f;
     position: relative;
+    padding: 0.5em 0;
 }
 
 /*x to close input window*/
@@ -132,6 +179,7 @@ body {
     transition: .4s;  
     text-align: center;
     line-height: 26px;
+    border-radius: 20px;
 }
 
 .slider:before {
@@ -145,6 +193,7 @@ body {
     background-color: white;
     transition: .4s;
     content: "No";
+    border-radius: 20px;
   }
 
   input:checked + .slider {

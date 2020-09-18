@@ -6,43 +6,53 @@
 
 <body>
     <div id="main-lib-wrapper">
-    <button id="show-book-ribbon">Add New Book</button>
-       <div id="display-area">
-            <div id='display-title'>
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
-                <p>Finished?</p>
-            </div>
-            <div id="library-display"></div>
-        </div>
-        <div class="add-book-area">
-            <div id="book-input-ribbon">
-                <span id="close">&times;</span>
-                <div id="input-menu">
-                    <div>
-                        <p>Title</p>
-                        <input type="text" id='title'></input>
-                    </div>
-                    <div>
-                        <p>Author</p>
-                        <input type="text" id='author'></input>
-                    </div>
-                    <div>
-                        <p>Number of Pages</p>
-                        <input type="text" id='page-number'></input>
-                    </div>
-                    <div id=finished>
-                        <p>Finished it yet?</p>
-                        <label class="switch">
-                            <input type="checkbox" class="yes-no">
-                            <span class="slider"></span>
-                        </label>
-                    </div>      
-                    <button id="add-new-book">Add</button>
+        <div id="main-buttons-wrapper">
+            <button id="show-book-ribbon">Add New Book</button>
+            <div class="sort-wrapper">
+                <div class="sort-button">Sort</div>
+                <div class="sort-options">
+                    <div id="by-author">Alphabetically by Author</div>
+                    <div id="by-title">Alphabetically by Title</div>
+                    <div id="by-length">By Length</div>
                 </div>
             </div>
-        </div>  
+        </div>
+           <div id="display-area">
+                <div id='display-title'>
+                    <p>Title</p>
+                    <p>Author</p>
+                    <p>Pages</p>
+                    <p>Finished?</p>
+                </div>
+                <div id="library-display"></div>
+            </div>
+            <div class="add-book-area">
+                <div id="book-input-ribbon">
+                    <span id="close">&times;</span>
+                    <div id="input-menu">
+                        <div>
+                            <p>Title</p>
+                            <input type="text" id='title'></input>
+                        </div>
+                        <div>
+                            <p>Author</p>
+                            <input type="text" id='author'></input>
+                        </div>
+                        <div>
+                            <p>Number of Pages</p>
+                            <input type="text" id='page-number'></input>
+                        </div>
+                        <div id=finished>
+                            <p>Finished it yet?</p>
+                            <label class="switch">
+                                <input type="checkbox" class="yes-no">
+                                <span class="slider"></span>
+                            </label>
+                        </div>      
+                        <button id="add-new-book">Add</button>
+                    </div>
+                </div>
+            </div>  
     </div>
         
 
